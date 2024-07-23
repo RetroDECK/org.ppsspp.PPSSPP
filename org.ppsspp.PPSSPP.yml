@@ -1,7 +1,7 @@
 app-id: org.ppsspp.PPSSPP
-runtime: org.freedesktop.Platform
-runtime-version: '23.08'
-sdk: org.freedesktop.Sdk
+runtime: org.kde.Platform
+runtime-version: "6.7"
+sdk: org.kde.Sdk
 rename-icon: ppsspp
 rename-desktop-file: PPSSPPSDL.desktop
 command: PPSSPPSDL
