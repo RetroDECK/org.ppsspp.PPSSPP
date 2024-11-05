@@ -1,0 +1,11 @@
+name: "Sync with Upstream and Create PR"
+
+on:
+  workflow_call:
+  workflow_dispatch:
+  schedule:
+    - cron: "30 0 * * *"  # Run every day at 00:30 UTC (9:30 JST)
+
+jobs:
+  upstream-sync:
+    uses: RetroDECK/components-template/.github/workflows/pr_from_upstream.yml@main

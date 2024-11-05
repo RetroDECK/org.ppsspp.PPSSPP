@@ -1,0 +1,16 @@
+name: "Build Artifacts for RetroDECK main manifest"
+
+on:
+  push:
+    branches:
+      - master
+      - main
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+
+  build-project:
+    uses: RetroDECK/components-template/.github/workflows/build_artifacts.yml@main
+    with:
+        MANIFEST_FILENAME: "org.ppsspp.PPSSPP.yml"
