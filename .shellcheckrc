@@ -1,0 +1,11 @@
+shell=bash
+
+source-path=SCRIPTDIR
+source-path=functions/
+source-path=tools/
+
+source=functions/global.sh
+
+external-sources=true
+
+disable=SC1017,SC2215,SC1091,SC2076,SC2288,SC2114,SC2034,SC2124,SC2154,SC2155

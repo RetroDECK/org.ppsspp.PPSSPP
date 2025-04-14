@@ -1,6 +1,6 @@
 app-id: org.ppsspp.PPSSPP
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 rename-icon: ppsspp
 rename-desktop-file: PPSSPPSDL.desktop
@@ -46,6 +46,7 @@ modules:
       - install -Dm644 ${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo
     cleanup:
       - /share/ppsspp/assets/lang/README.md
+      - /lib/debug
     sources:
       - type: git
         url: &ppsspp-url https://github.com/hrydgard/ppsspp.git
@@ -60,3 +61,15 @@ modules:
 
       - type: file
         path: org.ppsspp.PPSSPP.metainfo.xml
+
+  - name: component-metadata
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 component_launcher.sh ${FLATPAK_DEST}/component_launcher.sh
+      - install -Dm755 framework.sh ${FLATPAK_DEST}/framework.sh
+      - install -Dm755 prepare_component.sh ${FLATPAK_DEST}/prepare_component.sh
+      - cp presets.json ${FLATPAK_DEST}/presets.json
+      - mv ${FLATPAK_DEST}/share/ppsspp/assets ${FLATPAK_DEST}/assets
+    sources:
+      - type: dir
+        path: component-metadata
